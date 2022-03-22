@@ -4,47 +4,50 @@
   <meta charset="UTF-8">
   <title>Flipping Cards</title>
   <link rel="stylesheet" href="./style.css">
-
-</head>
+</head>	
 <body>
-
 <div id="flashcards-app">
-  
+	
   <div>
-
+	  
     <input tpye="text" v-model="questionInput" placeholder="Enter question here"/>
     
-    
     <input tpye="text" v-model="answerInput" placeholder="Enter answer here" />
+	  
     <br>
     
     <input type="radio" id="one" value="history" v-model="categoryInput">
     <label for="one">History</label>
-    
+	  
     <input type="radio" id="two" value="science" v-model="categoryInput">
     <label for="two">Science</label>
     
     <input type="radio" id="three" value="math" v-model="categoryInput">
     <label for="three">Math</label>
+	  
     <br>
     
-    
     <button v-on:click="newCard">Submit</button>
+	  
   </div>
-  
-  
+	
  <div class="card" v-for="(card, index) in cards" v-on:click = "flipCard(index)">
+	 
     <div class="top" v-bind:class="card.category"></div>
+	 
     <div class="side1" v-bind:class="{hide: card.flipped}">
       <h1>{{card.question}}</h1>
     </div>
+	 
     <div class="side2" v-bind:class="{hide: !card.flipped}">
       <h1>{{card.answer}}</h1>
     </div>
+	 
   </div>
-  
+	
 </div>
+	
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
-
-</body>
+	
+</body>	
 </html>
